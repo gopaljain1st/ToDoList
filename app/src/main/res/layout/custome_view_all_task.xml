@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="7dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"></CheckBox>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Name"
+                android:id="@+id/txtTaskName"
+                android:textColor="#000"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/checkbox"
+                android:layout_marginTop="15dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner Name"
+                android:textColor="#000"
+                android:id="@+id/txtOwnerName"
+                android:layout_below="@+id/txtTaskName"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/checkbox"
+                android:layout_marginTop="10dp"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10/09/2020"
+                android:textColor="#000"
+                android:layout_alignParentRight="true"
+                android:id="@+id/txtDueDate"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/txtTaskName"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"></TextView>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

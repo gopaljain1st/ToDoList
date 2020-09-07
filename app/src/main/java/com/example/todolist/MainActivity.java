@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAddTask,btnCreateProject;
+    Button btnAddTask,btnCreateProject,btnViewAllTask;
     private View popupInputDialogView = null;
     private EditText taskName = null,taskOwnerName;
     private EditText taskDueDate = null;
@@ -28,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnAddTask=findViewById(R.id.btnAddTask);
+
+        btnViewAllTask=findViewById(R.id.btnViewAllTask);
+
+        btnViewAllTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,ViewAllTask.class);
+                startActivity(intent);
+            }
+        });
 
         btnCreateProject=findViewById(R.id.btnCreateProject);
         btnCreateProject.setOnClickListener(new View.OnClickListener() {

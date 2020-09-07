@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:id="@+id/et_project_name"/>
+        android:id="@+id/et_project_name"></EditText>
 
     <EditText
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@+id/et_project_name"
-        android:id="@+id/et_project_description"/>
+        android:id="@+id/et_project_description"></EditText>
 
     <Button
         android:layout_width="wrap_content"
@@ -34,6 +34,6 @@
         android:layout_below="@+id/et_project_description"
         android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
-        />
+        ></Button>
 
 </RelativeLayout>
