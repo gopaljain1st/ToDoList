@@ -1,8 +1,10 @@
 package com.example.todolist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,7 +15,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnAddTask=findViewById(R.id.btnAddTask);
+        fStore=FirebaseFirestore.getInstance();
 
         btnViewAllTask=findViewById(R.id.btnViewAllTask);
 
@@ -76,7 +83,27 @@ public class MainActivity extends AppCompatActivity {
                     saveUserDataButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            final ProgressDialog pd=new ProgressDialog(MainActivity.this);
+                            pd.setTitle("Uploading....");
+                            pd.show();
 
+                            com.example.todolist.model.Task t=new com.example.todolist.model.Task("0",taskName.getText().toString(),taskOwnerName.getText().toString(),taskDueDate.getText().toString(),""+status.isChecked());
+
+                            final DocumentReference docRef=fStore.collection("Tasks").document(""+System.currentTimeMillis());
+
+                            docRef.set(t).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task)
+                                {
+                                    pd.dismiss();
+                                    if(task.isSuccessful())
+                                    {
+                                        Toast.makeText(MainActivity.this, "Task Added Successfully", Toast.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+                                    }
+                                    else Toast.makeText(MainActivity.this, ""+task, Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     });
 
