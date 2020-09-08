@@ -18,12 +18,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Project Name"
+        android:hint="Project Description"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@+id/et_project_name"
-        android:id="@+id/et_project_description"></EditText>
+        android:id="@+id/et_project_description"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -34,6 +34,22 @@
         android:layout_below="@+id/et_project_description"
         android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
-        ></Button>
-
+        />
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rv"
+    android:padding="10dp"
+    android:layout_below="@id/btnAddTask"
+    android:layout_marginTop="20dp"
+    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv"
+        android:id="@+id/addProject"
+        android:text="Add Project"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>

@@ -14,6 +14,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnAddTask,btnCreateProject,btnViewAllTask;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox status = null;
     private ImageView saveUserDataButton = null;
     private ImageView cancelUserDataButton = null;
+    FirebaseFirestore fStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
