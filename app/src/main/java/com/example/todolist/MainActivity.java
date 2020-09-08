@@ -24,7 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAddTask,btnCreateProject,btnViewAllTask;
+    Button btnAddTask,btnCreateProject,btnViewAllTask,btnAllTaskByProjects;
     private View popupInputDialogView = null;
     private EditText taskName = null,taskOwnerName;
     private EditText taskDueDate = null;
@@ -41,6 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
         btnViewAllTask=findViewById(R.id.btnViewAllTask);
 
+        btnAllTaskByProjects=findViewById(R.id.btnViewAllTaskByProject);
+        btnAllTaskByProjects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,Test.class);
+                startActivity(intent);
+
+            }
+        });
         btnViewAllTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,6 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:id="@+id/cv"
         android:layout_margin="7dp"
         app:cardCornerRadius="10dp">
 
