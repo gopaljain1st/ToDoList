@@ -87,7 +87,6 @@ public class ViewTaskByProject extends AppCompatActivity {
                 @Override
                 public void run() {
                     pd.dismiss();
-                    al.add("hfdknm");
                     final ArrayAdapter<String> spinnerAdapter= new ArrayAdapter<String>(ViewTaskByProject.this,android.R.layout.simple_spinner_item,al);
                     spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                     type.setAdapter(spinnerAdapter);

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "626957697456",
+    "firebase_url": "https://testrestapi-7c840.firebaseio.com",
+    "project_id": "testrestapi-7c840",
+    "storage_bucket": "testrestapi-7c840.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626957697456:android:732468e9ed6055a6311675",
+        "android_client_info": {
+          "package_name": "com.example.todolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626957697456-qodvhvdaf357jgkt1da50luldel1mco2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.todolist",
+            "certificate_hash": "a75ed9b33f454644a0f2658be9dab216d0b404f4"
+          }
+        },
+        {
+          "client_id": "626957697456-i44g9a8r52eutb7vc34s6d3bnat9gb9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNg3RoeqEp7NdytGetJHTjjLqMNCBUfmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626957697456-i44g9a8r52eutb7vc34s6d3bnat9gb9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,8 @@ public class AllProjectTask extends AppCompatActivity {
                 holder.txtTaskName.setText(model.getName());
                 holder.txtDueDate.setText(model.getDueDate());
                 holder.txtOwnerName.setText(model.getoName());
+                if(model.getIsComplete().equals("true"))
+                    holder.checkBox.setChecked(true);
             }
 
             @NonNull
@@ -101,12 +104,14 @@ public class AllProjectTask extends AppCompatActivity {
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         TextView txtTaskName,txtOwnerName,txtDueDate;
         CardView cv;
+        CheckBox checkBox;
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             txtDueDate=itemView.findViewById(R.id.txtDueDate);
             txtOwnerName=itemView.findViewById(R.id.txtOwnerName);
             txtTaskName=itemView.findViewById(R.id.txtTaskName);
             cv=itemView.findViewById(R.id.cv);
+            checkBox=itemView.findViewById(R.id.checkbox);
         }
     }
 }

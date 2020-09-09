@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.todolist.adapter.ViewAllTaskAdapter;
@@ -56,6 +57,8 @@ public class ViewAllTask extends AppCompatActivity {
                 holder.txtTaskName.setText(model.getName());
                 holder.txtDueDate.setText(model.getDueDate());
                 holder.txtOwnerName.setText(model.getoName());
+                if(model.getIsComplete().equals("true"))
+                    holder.checkBox.setChecked(true);
             }
 
             @Override
@@ -93,11 +96,13 @@ public class ViewAllTask extends AppCompatActivity {
 
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         TextView txtTaskName,txtOwnerName,txtDueDate;
+        CheckBox checkBox;
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             txtDueDate=itemView.findViewById(R.id.txtDueDate);
             txtOwnerName=itemView.findViewById(R.id.txtOwnerName);
             txtTaskName=itemView.findViewById(R.id.txtTaskName);
+            checkBox=itemView.findViewById(R.id.checkbox);
         }
     }
 }
