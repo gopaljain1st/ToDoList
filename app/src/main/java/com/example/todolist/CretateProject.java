@@ -72,7 +72,7 @@ public class CretateProject extends AppCompatActivity {
 
                 final DocumentReference docRef=fStore.collection("Projects").document(projectId);
 
-                docRef.set(new Project(projectName.getText().toString(),projectDescription.getText().toString(),""+al.size())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                docRef.set(new Project(projectName.getText().toString(),projectDescription.getText().toString(),""+al.size(),projectId)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task)
                     {

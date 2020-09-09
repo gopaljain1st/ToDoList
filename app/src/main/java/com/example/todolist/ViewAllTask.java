@@ -39,10 +39,10 @@ public class ViewAllTask extends AppCompatActivity {
         arrayList=new ArrayList<>();
         recyclerView=findViewById(R.id.recycle);
 
-        arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
-        arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
-        arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
-        arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
+        //arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
+        //arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
+        //arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
+        //arrayList.add(new Task("Buy Grocie","sag jain","12/09/2020"));
         fStore= FirebaseFirestore.getInstance();
 
         Query query = fStore.collection("Tasks");

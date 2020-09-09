@@ -2,7 +2,25 @@ package com.example.todolist.model;
 
 public class Project
 {
-    private String projectName,projectDescription,noOfTasks;
+    private String projectName,projectDescription,noOfTasks,projectId;
+
+    public Project() {
+    }
+
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public Project(String projectName, String projectDescription, String noOfTasks, String projectId) {
+        this.projectName = projectName;
+        this.projectDescription = projectDescription;
+        this.noOfTasks = noOfTasks;
+        this.projectId = projectId;
+    }
 
     public Project(String projectName, String projectDescription, String noOfTasks) {
         this.projectName = projectName;
