@@ -49,9 +49,11 @@ public class CreateTask extends AppCompatActivity {
                 pd.setTitle("Uploading....");
                 pd.show();
 
-                com.example.todolist.model.Task t=new com.example.todolist.model.Task("0",taskName.getText().toString(),taskOwnerName.getText().toString(),taskDueDate.getText().toString(),""+status.isChecked());
+                 String taskId=""+System.currentTimeMillis();
+                final DocumentReference docRef=fStore.collection("Tasks").document(taskId);
 
-                final DocumentReference docRef=fStore.collection("Tasks").document(""+System.currentTimeMillis());
+                com.example.todolist.model.Task t=new com.example.todolist.model.Task("0",taskName.getText().toString(),taskOwnerName.getText().toString(),taskDueDate.getText().toString(),""+status.isChecked(),taskId);
+
 
                 docRef.set(t).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

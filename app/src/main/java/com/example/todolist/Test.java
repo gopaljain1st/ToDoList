@@ -63,6 +63,7 @@ public class Test extends AppCompatActivity
         FirestoreRecyclerOptions<Project> response = new FirestoreRecyclerOptions.Builder<Project>()
                 .setQuery(query, Project.class)
                 .build();
+        al.clear();
       adapter= new FirestoreRecyclerAdapter<Project, TaskViewHolder>(response) {
             @Override
             public void onBindViewHolder(TaskViewHolder holder, int position, Project model) {

@@ -1,5 +1,6 @@
 package com.example.todolist;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,11 +22,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.todolist.model.Task;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AllProjectTask extends AppCompatActivity {
 
@@ -55,7 +63,7 @@ public class AllProjectTask extends AppCompatActivity {
                 .build();
         adapter = new FirestoreRecyclerAdapter<Task, AllProjectTask.TaskViewHolder>(response) {
             @Override
-            protected void onBindViewHolder(@NonNull TaskViewHolder holder, int position, @NonNull Task model) {
+            protected void onBindViewHolder(@NonNull TaskViewHolder holder, int position, @NonNull final Task model) {
 
                 if (!pid.equals(model.getProjectId())){
                     holder.cv.setVisibility(View.GONE);
@@ -65,6 +73,44 @@ public class AllProjectTask extends AppCompatActivity {
                 holder.txtOwnerName.setText(model.getoName());
                 if(model.getIsComplete().equals("true"))
                     holder.checkBox.setChecked(true);
+
+                /*
+                * holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        if(b)
+                        {
+                            new AlertDialog.Builder(AllProjectTask.this).setTitle("Update").setMessage("Are You Sure You Want To Complete This Task").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    final DocumentReference docRef=fStore.collection("Tasks").document(model.getTaskId());
+                                    Map<String,Object> hm=new HashMap<>();
+                                    hm.put(""+model.getTaskId(),model);
+                                    docRef.update(hm).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task)
+                                        {
+                                            if(task.isSuccessful())
+                                            {
+                                                Toast.makeText(AllProjectTask.this, "Task Updated Successfully", Toast.LENGTH_SHORT).show();
+                                                adapter.notifyDataSetChanged();
+                                            }
+                                            else Toast.makeText(AllProjectTask.this, ""+task, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i)
+                                {
+
+                                }
+                            }).show();
+                        }
+                    }
+                });*/
+
             }
 
             @NonNull

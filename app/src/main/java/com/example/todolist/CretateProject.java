@@ -115,13 +115,16 @@ public class CretateProject extends AppCompatActivity {
                         @Override
                         public void onClick(View view)
                         {
-                            com.example.todolist.model.Task t=new com.example.todolist.model.Task(projectId,taskName.getText().toString(),taskOwnerName.getText().toString(),taskDueDate.getText().toString(),""+status.isChecked());
+
+                            String taskId=""+System.currentTimeMillis();
+
+                            final DocumentReference docRef=fStore.collection("Tasks").document(taskId);
+                            com.example.todolist.model.Task t=new com.example.todolist.model.Task(projectId,taskName.getText().toString(),taskOwnerName.getText().toString(),taskDueDate.getText().toString(),""+status.isChecked(),taskId);
                             al.add(t);
                             final ProgressDialog pd=new ProgressDialog(CretateProject.this);
                             pd.setTitle("Uploading....");
                             pd.show();
 
-                            final DocumentReference docRef=fStore.collection("Tasks").document(""+System.currentTimeMillis());
 
                             docRef.set(t).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

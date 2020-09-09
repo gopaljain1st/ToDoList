@@ -1,7 +1,24 @@
 package com.example.todolist.model;
 
 public class Task {
-    private String projectId,name,oName,dueDate,isComplete;
+    private String projectId,name,oName,dueDate,isComplete,taskId;
+
+    public Task(String projectId, String name, String oName, String dueDate, String isComplete, String taskId) {
+        this.projectId = projectId;
+        this.name = name;
+        this.oName = oName;
+        this.dueDate = dueDate;
+        this.isComplete = isComplete;
+        this.taskId = taskId;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
     public Task(String projectId, String name, String oName, String dueDate, String isComplete) {
         this.projectId = projectId;
